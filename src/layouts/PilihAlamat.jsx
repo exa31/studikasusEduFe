@@ -64,7 +64,7 @@ export default function PilihAlamat() {
                             <Link to={{
                                 pathname: '/checkout/' + alamat,
                                 // state: { alamat: alamat }                                
-                            }} className="btn w-40 btn-primary btn-xs sm:btn-sm md:btn-md lg:btn-lg">Lanjut</Link>
+                            }} disabled={alamat === ''} className="btn w-40 btn-primary btn-xs sm:btn-sm md:btn-md lg:btn-lg">Lanjut</Link>
                         </div>
                     </div>
                 </div >
