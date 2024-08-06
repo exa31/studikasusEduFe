@@ -21,10 +21,10 @@ export default function ListCart({ item, index, handleAdd, handleReduce, handleD
             </div>
             <p className="md:text-2xl text-xs">{formatRupiah(item.product.price)}</p>
             <div className="flex justify-center items-center gap-1">
-                <button onClick={() => handleAdd(item.product._id)} className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg  btn-primary">+</button>
+                <button onClick={() => handleAdd(item.product._id)} className="btn text-xs md:text-2xl btn-xs sm:btn-sm md:btn-md lg:btn-lg  btn-primary">+</button>
                 <p className="text-xs md:text-2xl">{item.qty}</p>
-                <button onClick={() => handleReduce(item.product._id)} className="btn   btn-xs sm:btn-sm md:btn-md lg:btn-lg btn-primary">-</button>
-                <button onClick={() => handleDelete(item.product._id)} className="btn   btn-xs sm:btn-sm md:btn-md lg:btn-lg btn-primary"><FontAwesomeIcon icon={faTrash} /></button>
+                <button onClick={() => handleReduce(item.product._id)} className="btn text-xs md:text-2xl btn-xs sm:btn-sm md:btn-md lg:btn-lg btn-primary">-</button>
+                <button onClick={() => handleDelete(item.product._id)} className="btn text-xs md:text-2xl btn-xs sm:btn-sm md:btn-md lg:btn-lg btn-primary"><FontAwesomeIcon icon={faTrash} /></button>
             </div>
             <p className="md:text-2xl text-xs">{formatRupiah(item.product.price * item.qty)}</p>
         </div>

@@ -59,10 +59,10 @@ export default function ViewCart() {
                             <h1 className="text-center text-3xl font-bold">Cart</h1>
                             <div>
                                 <div className="p-2 md:text-2xl font-bold text-center grid grid-cols-4">
-                                    <p className="">Product</p>
-                                    <p className="">Price</p>
-                                    <p className="">Quantity</p>
-                                    <p className="">Total</p>
+                                    <p>Product</p>
+                                    <p>Price</p>
+                                    <p>Quantity</p>
+                                    <p>Total</p>
                                 </div>
                                 {
                                     carts.map((item, index) => {
