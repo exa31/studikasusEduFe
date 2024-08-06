@@ -46,7 +46,7 @@ export default function ViewCart() {
     const totalCart = carts.reduce((acc, item) => acc + item.product.price * item.qty, 0);
 
     return (
-        <div className="container p-6 mx-auto bg-base-200 rounded-2xl">
+        <div className="container p-4 mx-auto bg-base-200 rounded-2xl">
             <div>
                 {
                     carts.length === 0 ? <div className="flex flex-col justify-center text-center">
@@ -58,11 +58,11 @@ export default function ViewCart() {
                         <>
                             <h1 className="text-center text-3xl font-bold">Cart</h1>
                             <div>
-                                <div className="p-6 text-center grid grid-cols-4">
-                                    <p className="text-2xl font-bold">Product</p>
-                                    <p className="text-2xl font-bold">Price</p>
-                                    <p className="text-2xl font-bold">Quantity</p>
-                                    <p className="text-2xl font-bold">Total</p>
+                                <div className="p-2 md:text-2xl font-bold text-center grid grid-cols-4">
+                                    <p className="">Product</p>
+                                    <p className="">Price</p>
+                                    <p className="">Quantity</p>
+                                    <p className="">Total</p>
                                 </div>
                                 {
                                     carts.map((item, index) => {
@@ -71,7 +71,7 @@ export default function ViewCart() {
                                         )
                                     })
                                 }
-                                <div className="flex justify-between bg-info text-black font-bold px-32 py-2 rounded-b-2xl text-xl">
+                                <div className="flex justify-between bg-info text-black font-bold px-5 py-2 rounded-b-2xl text-xl">
                                     <h3 className="col-span-3">Sub Total</h3>
                                     <h3 className="col-span-3">{formatRupiah(totalCart)}</h3>
                                 </div>

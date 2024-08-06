@@ -14,19 +14,19 @@ ListCart.propTypes = {
 
 export default function ListCart({ item, index, handleAdd, handleReduce, handleDelete }) {
     return (
-        <div key={index} className="p-6 text-center items-center grid grid-cols-4">
+        <div key={index} className="p-1 text-center items-center grid grid-cols-4">
             <div>
-                <img className="object-fill h-48 w-72" src={item.product.image_url} alt={item.product.name} />
-                <h1 className="text-xl font-bold">{item.product.name}</h1>
+                <img className="object-fill md:h-48 w-72" src={item.product.image_url} alt={item.product.name} />
+                <h1 className="md:text-xl text-xs font-bold">{item.product.name}</h1>
             </div>
-            <p className="text-2xl">{formatRupiah(item.product.price)}</p>
-            <div className="flex justify-center items-center gap-4">
-                <button onClick={() => handleAdd(item.product._id)} className="btn text-2xl btn-primary">+</button>
-                <p className="text-2xl">{item.qty}</p>
-                <button onClick={() => handleReduce(item.product._id)} className="btn text-2xl btn-primary">-</button>
-                <button onClick={() => handleDelete(item.product._id)} className="btn text-2xl btn-primary"><FontAwesomeIcon icon={faTrash} /></button>
+            <p className="md:text-2xl text-xs">{formatRupiah(item.product.price)}</p>
+            <div className="flex justify-center items-center gap-1">
+                <button onClick={() => handleAdd(item.product._id)} className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg  btn-primary">+</button>
+                <p className="text-xs md:text-2xl">{item.qty}</p>
+                <button onClick={() => handleReduce(item.product._id)} className="btn   btn-xs sm:btn-sm md:btn-md lg:btn-lg btn-primary">-</button>
+                <button onClick={() => handleDelete(item.product._id)} className="btn   btn-xs sm:btn-sm md:btn-md lg:btn-lg btn-primary"><FontAwesomeIcon icon={faTrash} /></button>
             </div>
-            <p className="text-2xl">{formatRupiah(item.product.price * item.qty)}</p>
+            <p className="md:text-2xl text-xs">{formatRupiah(item.product.price * item.qty)}</p>
         </div>
     )
 }
