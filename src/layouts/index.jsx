@@ -31,7 +31,7 @@ export default function Layout() {
     return (
         <>
             {open && <Logout handleClick={handleClick} />}
-            <div className="navbar sticky top-0 navbar-center bg-base-100 w-full">
+            <div className="navbar sticky z-50 top-0 navbar-center bg-base-100 w-full">
                 <div className="flex-1">
                     <a className="text-xl font-bold">Exa Store</a>
                 </div>
