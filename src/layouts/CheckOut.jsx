@@ -36,9 +36,9 @@ export default function Checkout() {
             getCart().then(data => {
                 data.items.forEach((item) => {
                     dispatch(setCart(item));
+                    navigate(`/invoice/${res._id}`)
                 })
             })
-            navigate(`/invoice/${res._id}`)
         })
     }
 
