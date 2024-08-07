@@ -64,8 +64,6 @@ export default function Dashboard() {
                 <div className={isActive ? 'fixed flex-col items-end z-30 top-16 bg-base-100 w-full right-0' : "flex-none hidden text-center md:flex"}>
                     <NavLink to='/' className="btn btn-ghost">Home</NavLink>
                     <NavLink to='/products' className="btn btn-ghost">Products</NavLink>
-                    <NavLink to='/about' className="btn btn-ghost">About</NavLink>
-                    <NavLink to='/contact' className="btn btn-ghost">Contact</NavLink>
                 </div>
                 <div className="flex-none">
                     <div className="dropdown dropdown-end">
