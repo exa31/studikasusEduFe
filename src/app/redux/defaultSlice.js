@@ -20,7 +20,7 @@ const defaultSlice = createSlice({
             state.login = false;
         },
         setCart: (state, action) => {
-            state.cart = [action.payload];
+            state.cart = action.payload;
         },
         addToCart: (state, action) => {
             const existProduct = state.cart.some((item) => item.product._id === action.payload.product._id);

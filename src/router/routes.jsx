@@ -23,6 +23,8 @@ import PilihAlamat from "../layouts/PilihAlamat.jsx";
 import Checkout from "../layouts/CheckOut.jsx";
 import Invoice from "../layouts/Invoice.jsx";
 import { getAllInvoices, getInvoices } from "../app/api/invoice/index.js";
+import NotFound from "../pages/NotFound.jsx";
+import ErrorLoader from "../pages/ErrorLoader.jsx";
 // import { products } from "../app/api/products";
 
 
@@ -30,6 +32,7 @@ const router = createBrowserRouter([
     {
         path: "/",
         element: <Layout />,
+        errorElement: <ErrorLoader />,
         children: [
             {
                 path: "/",
@@ -38,7 +41,7 @@ const router = createBrowserRouter([
             {
                 path: "/products",
                 element: <Products />,
-                loader: products
+                loader: products,
             },
             {
                 path: '/cart',
@@ -50,6 +53,7 @@ const router = createBrowserRouter([
     {
         path: "/account",
         element: <Dashboard />,
+        errorElement: <ErrorLoader />,
         children: [
             {
                 path: "profile",
@@ -88,6 +92,7 @@ const router = createBrowserRouter([
     {
         path: '/dashboard',
         element: <DashBoard />,
+        errorElement: <ErrorLoader />,
         children: [
             {
                 path: "products",
@@ -108,17 +113,24 @@ const router = createBrowserRouter([
     {
         path: "pilih-alamat",
         element: <PilihAlamat />,
+        errorElement: <ErrorLoader />,
         loader: getDeliveryAddress
     },
     {
         path: "checkout/:id",
         element: <Checkout />,
+        errorElement: <ErrorLoader />,
         loader: getDeliveryAddressById
     },
     {
         path: 'invoice/:order_id',
         element: <Invoice />,
+        errorElement: <ErrorLoader />,
         loader: getInvoices
+    },
+    {
+        path: "*",
+        element: <NotFound />
     }
 
 

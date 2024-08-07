@@ -18,12 +18,10 @@ function App() {
       if (data.statusCode !== 200) {
         return localStorage.removeItem('token');
       }
-      getCart().then(data => {
-        data.items.forEach((item) => {
-          dispatch(setCart(item));
-        })
+      return getCart().then(data => {
+        dispatch(setCart(data.items));
+        dispatch(isLogin());
       })
-      return dispatch(isLogin());
     })
   }
 

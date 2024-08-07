@@ -5,7 +5,7 @@ import { formatRupiah } from "../utils";
 import { useNavigate, useParams } from "react-router-dom";
 import { createOrder } from "../app/api/order";
 import { setCart } from "../app/redux/defaultSlice";
-import { getCart } from "../app/api/cart";
+
 
 export default function Checkout() {
 
@@ -23,6 +23,11 @@ export default function Checkout() {
 
     const cart = useSelector(state => state.defaultSlice.cart)
 
+
+    const subtotal = cart.reduce((total, item) => total + item.qty * item.product.price, 0)
+    const deliveryFee = 20000
+    const total = subtotal + deliveryFee
+
     const handleCheckOut = () => {
         if (paymentMethod === '') {
             setError({ paymentMethod: true })
@@ -32,19 +37,12 @@ export default function Checkout() {
             delivery_address: idAddress,
             metode_payment: paymentMethod
         }
+
         return createOrder(order).then((res) => {
-            getCart().then(data => {
-                data.items.forEach((item) => {
-                    dispatch(setCart(item));
-                })
-                navigate(`/invoice/${res._id}`)
-            })
+            dispatch(setCart([]))
+            navigate(`/invoice/${res._id}`)
         })
     }
-
-    const subtotal = cart.reduce((total, item) => total + item.qty * item.product.price, 0)
-    const deliveryFee = 20000
-    const total = subtotal + deliveryFee
 
     return (
         <div className="h-screen container mx-auto pt-12">
