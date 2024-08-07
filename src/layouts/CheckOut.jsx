@@ -60,7 +60,7 @@ export default function Checkout() {
                         <p>Desa {data.kelurahan}, Kecamatan {data.kecamatan}, {data.kabupaten}, {data.provinsi}, {data.detail}</p>
                         <h4 className='font-bold'>Sub Total</h4>
                         <p>{formatRupiah(subtotal)}</p>
-                        <h4 className='font-bold'>Sub Total</h4>
+                        <h4 className='font-bold'>Delivery fee</h4>
                         <p>{formatRupiah(deliveryFee)}</p>
                         <h4 className='font-bold'>Metode Pembayaran</h4>
                         <div>

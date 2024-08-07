@@ -25,7 +25,7 @@ export default function Dashboard() {
 
     const qtyTotal = cart.reduce((total, item) => total + item.qty, 0);
     const subTotal = cart.reduce((total, item) => total + item.qty * item.product.price, 0);
-    console.log(isActive);
+
 
     return (
         <>

@@ -14,6 +14,7 @@ export default function Login() {
         const email = e.target.email.value;
         const password = e.target.password.value;
         login(email, password).then(data => {
+            console.log(data);
             if (data.statusCode === 401) {
                 e.target.email.value = '';
                 e.target.password.value = '';

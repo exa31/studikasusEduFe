@@ -2,6 +2,8 @@ import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import typeprops from 'prop-types';
 import Badge from './Badge';
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 Card.propTypes = {
     img: typeprops.string.isRequired,
@@ -14,6 +16,9 @@ Card.propTypes = {
 };
 
 export default function Card({ img, tags, id, title, description, price, handleCart }) {
+
+    const user = useSelector((state) => state.defaultSlice.login);
+
     const formatRupiah = (number) => {
         return new Intl.NumberFormat('id-ID', {
             style: 'currency',
@@ -38,7 +43,11 @@ export default function Card({ img, tags, id, title, description, price, handleC
                     <p className='line-clamp-3 text-xl'>{description}</p>
                 </div>
                 <div className="mt-auto flex justify-between">
-                    <button onClick={() => handleCart(id)} className="px-3 hover:opacity-90 text-2xl duration-200 font-bold btn btn-info rounded-md my-3 "><FontAwesomeIcon icon={faCartPlus} /></button>
+                    {user ?
+                        <button onClick={() => handleCart(id)} className="px-3 hover:opacity-90 text-2xl duration-200 font-bold btn btn-info rounded-md my-3 "><FontAwesomeIcon icon={faCartPlus} /></button>
+                        :
+                        <Link to="/login" className="px-3 hover:opacity-90 text-2xl duration-200 font-bold btn btn-info rounded-md my-3 "><FontAwesomeIcon icon={faCartPlus} /></Link>
+                    }
                 </div>
             </div>
         </div >
