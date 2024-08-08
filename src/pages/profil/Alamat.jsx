@@ -21,16 +21,16 @@ export default function Alamat() {
     return (
         <>
             {alamat.statusCode === 404 ?
-                <div className="bg-base-200 text-center">
+                <div className="text-center bg-base-200">
                     <div >
                         Maaf belum ada alamat yang dibuat
                     </div>
-                    <div className="flex m-4 justify-center">
-                        <Link to='/account/alamat/create-alamat' className="btn w-40 btn-primary">Create</Link>
+                    <div className="flex justify-center m-4">
+                        <Link to='/account/alamat/create-alamat' className="w-40 btn btn-primary">Create</Link>
                     </div>
                 </div>
                 :
-                < div className="overflow-x-auto  bg-base-200 mx-auto" >
+                < div className="max-h-screen mx-auto overflow-x-auto bg-base-200" >
                     <table className="table">
                         <thead>
                             <tr>
@@ -53,8 +53,8 @@ export default function Alamat() {
                             </tbody>
                         )}
                     </table>
-                    <div className="flex m-4 justify-start">
-                        <Link to='/account/alamat/create-alamat' className="btn w-40 btn-primary">Create alamat</Link>
+                    <div className="flex justify-start m-4">
+                        <Link to='/account/alamat/create-alamat' className="w-40 btn btn-primary">Create alamat</Link>
                     </div>
                 </div >
             }

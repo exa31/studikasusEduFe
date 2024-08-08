@@ -10,9 +10,9 @@ export default function Pesanan() {
                     <h1 >Maaf anda belum memesan apapun</h1>
                 </div>
                 :
-                <div className="grid gap-4 items-center text-start sm:text-md text-xs grid-cols-7">
+                <div className="grid items-center grid-cols-7 gap-4 overflow-scroll text-xs max-h-svh text-start sm:text-md">
                     <h4 className="font-bold"></h4>
-                    <h4 className="font-bold col-span-2">Order ID</h4>
+                    <h4 className="col-span-2 font-bold">Order ID</h4>
                     <h4 className="font-bold">Total</h4>
                     <h4 className="font-bold">Status</h4>
                     <h4 className="font-bold">Metode payment</h4>
