@@ -31,7 +31,7 @@ export default function Layout() {
     return (
         <>
             {open && <Logout handleClick={handleClick} />}
-            <div className="navbar sticky z-50 top-0 navbar-center bg-base-100 w-full">
+            <div className="sticky top-0 z-50 w-full h-min navbar navbar-center bg-base-100">
                 <div className="flex-1">
                     <a className="text-xl font-bold">Exa Store</a>
                 </div>
@@ -42,7 +42,7 @@ export default function Layout() {
 
                         {/* hamburger icon */}
                         <svg
-                            className="swap-off fill-current"
+                            className="fill-current swap-off"
                             xmlns="http://www.w3.org/2000/svg"
                             width="32"
                             height="32"
@@ -52,7 +52,7 @@ export default function Layout() {
 
                         {/* close icon */}
                         <svg
-                            className="swap-on fill-current"
+                            className="fill-current swap-on"
                             xmlns="http://www.w3.org/2000/svg"
                             width="32"
                             height="32"
@@ -76,7 +76,7 @@ export default function Layout() {
                             <div className="indicator">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
-                                    className="h-5 w-5"
+                                    className="w-5 h-5"
                                     fill="none"
                                     viewBox="0 0 24 24"
                                     stroke="currentColor">
