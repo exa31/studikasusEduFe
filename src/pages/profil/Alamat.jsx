@@ -9,15 +9,14 @@ export default function Alamat() {
     const [alamat, setAlamat] = useState(data);
 
     function handleDelete(id) {
-        deleteDeliveryAddress(id).then(() => {
+        deleteDeliveryAddress(id).then((data) => {
             const newAlamat = alamat.filter((data) => {
                 return data._id !== id
             })
+            console.log(data)
             return setAlamat(newAlamat)
         })
     }
-    console.log(alamat)
-
     return (
         <>
             {alamat.statusCode === 404 || alamat.length === 0 ?
@@ -47,8 +46,10 @@ export default function Alamat() {
                                 <tr>
                                     <td>{data.name}</td>
                                     <td> Desa {data.kelurahan}, Kecamatan {data.kecamatan}, {data.kabupaten}, {data.provinsi}, {data.detail}</td>
-                                    <td><Link to={`/account/alamat/edit-alamat/${data._id}`}>Edit</Link></td>
-                                    <td><button onClick={() => handleDelete(data._id)}>Delete</button></td>
+                                    <div>
+                                        <td><Link className="btn btn-warning" to={`/account/alamat/edit-alamat/${data._id}`}>Edit</Link></td>
+                                        <td><button className="btn btn-warning" onClick={() => handleDelete(data._id)}>Delete</button></td>
+                                    </div>
                                 </tr>
                             </tbody>
                         )}

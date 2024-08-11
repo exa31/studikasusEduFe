@@ -1,18 +1,26 @@
 import { Link, useLoaderData, useNavigate, useParams } from "react-router-dom"
 import { paidInvoice } from "../app/api/order"
+import { setCart } from "../app/redux/defaultSlice"
+import { useDispatch } from "react-redux"
 
 export default function Invoice() {
     const data = useLoaderData()
 
     const params = useParams()
 
+    const dispatch = useDispatch()
+
     const paid = data.payment_status === 'paid'
+
+    dispatch(setCart([]))
+
 
     const navigate = useNavigate()
 
     const handlePaid = () => {
-        paidInvoice(params.order_id)
-        navigate('/account/pesanan')
+        paidInvoice(params.order_id).then(() => {
+            navigate('/account/pesanan')
+        })
     }
 
     return (

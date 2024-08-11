@@ -1,10 +1,9 @@
 import { Link, useLoaderData } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useState } from "react";
 import { formatRupiah } from "../utils";
 import { useNavigate, useParams } from "react-router-dom";
 import { createOrder } from "../app/api/order";
-import { setCart } from "../app/redux/defaultSlice";
 
 
 export default function Checkout() {
@@ -18,8 +17,6 @@ export default function Checkout() {
     const idAddress = useParams().id
 
     const navigate = useNavigate();
-
-    const dispatch = useDispatch()
 
     const cart = useSelector(state => state.defaultSlice.cart)
 
@@ -39,19 +36,18 @@ export default function Checkout() {
         }
 
         return createOrder(order).then((res) => {
-            dispatch(setCart([]))
             navigate(`/invoice/${res._id}`)
         })
     }
 
     return (
-        <div className="h-screen container mx-auto pt-12">
-            < div className="container bg-base-200 m-auto rounded-2xl" >
+        <div className="container h-screen pt-12 mx-auto">
+            < div className="container m-auto bg-base-200 rounded-2xl" >
                 <div className="bg-base-300">
-                    <h1 className="text-start text-lg opacity-50 p-4 font-bold">Checkout</h1>
+                    <h1 className="p-4 text-lg font-bold opacity-50 text-start">Checkout</h1>
                 </div>
-                <h1 className="text-center text-3xl py-4 font-bold">Konfirmasi</h1>
-                <div className="overflow-x-auto p-12">
+                <h1 className="py-4 text-3xl font-bold text-center">Konfirmasi</h1>
+                <div className="p-12 overflow-x-auto">
 
                     <div className='grid grid-cols-2 gap-6'>
                         <h4 className='font-bold'>Alamat</h4>
@@ -73,9 +69,9 @@ export default function Checkout() {
                         <p className='font-bold'>{formatRupiah(total)}</p>
 
                     </div>
-                    <div className="flex m-4 justify-between">
-                        <Link to='/cart' className="btn w-40 btn-primary btn-xs sm:btn-sm md:btn-md lg:btn-lg">Back</Link>
-                        <button onClick={handleCheckOut} className="btn w-40 btn-primary btn-xs sm:btn-sm md:btn-md lg:btn-lg">Checkout</button>
+                    <div className="flex justify-between m-4">
+                        <Link to='/cart' className="w-40 btn btn-primary btn-xs sm:btn-sm md:btn-md lg:btn-lg">Back</Link>
+                        <button onClick={handleCheckOut} className="w-40 btn btn-primary btn-xs sm:btn-sm md:btn-md lg:btn-lg">Checkout</button>
                     </div>
                 </div>
             </div >

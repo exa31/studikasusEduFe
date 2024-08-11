@@ -128,7 +128,7 @@ export default function Dashboard() {
                     </div>
                 </div>
             </div>
-            <div className="container p-2 mx-auto bg-base-300">
+            <div className="container p-1 mx-auto bg-base-300">
                 <h1 className="p-4 bg-base-200">Account</h1>
                 <div className="flex py-4">
                     <div className="flex flex-col">
