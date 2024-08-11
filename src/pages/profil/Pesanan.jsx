@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom"
+import { Link, useLoaderData } from "react-router-dom"
 import ListOrder from "../../components/ListOrder"
 
 export default function Pesanan() {
@@ -8,8 +8,13 @@ export default function Pesanan() {
     return (
         <>
             {data.length === 0 ?
-                <div>
-                    <h1 >Maaf anda belum memesan apapun</h1>
+                <div className="text-center bg-base-200">
+                    <div >
+                        Maaf belum anda belum memesan apapun
+                    </div>
+                    <div className="flex justify-center m-4">
+                        <Link to='/products' className="w-40 btn btn-primary">Shop</Link>
+                    </div>
                 </div>
                 :
                 <div className="grid items-center grid-cols-7 gap-4 overflow-scroll text-xs max-h-svh text-start sm:text-md">
