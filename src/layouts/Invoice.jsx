@@ -1,4 +1,4 @@
-import { Link, useLoaderData, useParams } from "react-router-dom"
+import { Link, useLoaderData, useNavigate, useParams } from "react-router-dom"
 import { paidInvoice } from "../app/api/order"
 
 export default function Invoice() {
@@ -8,17 +8,20 @@ export default function Invoice() {
 
     const paid = data.payment_status === 'paid'
 
+    const navigate = useNavigate()
+
     const handlePaid = () => {
         paidInvoice(params.order_id)
+        navigate('/account/pesanan')
     }
 
     return (
-        <div className="h-screen container mx-auto pt-12">
-            < div className="container bg-base-200 m-auto rounded-2xl" >
+        <div className="container h-screen pt-12 mx-auto">
+            < div className="container m-auto bg-base-200 rounded-2xl" >
                 <div className="bg-base-300">
-                    <h1 className="text-start text-lg opacity-50 p-4 font-bold">Invoices</h1>
+                    <h1 className="p-4 text-lg font-bold opacity-50 text-start">Invoices</h1>
                 </div>
-                <div className="overflow-x-auto p-12">
+                <div className="p-12 overflow-x-auto">
                     <div className='grid grid-cols-2 gap-6'>
                         <h4 className='font-bold'>Status</h4>
                         <p>{data.payment_status}</p>
@@ -40,13 +43,13 @@ export default function Invoice() {
                         <p className='font-bold'>{data.metode_payment}</p>
                     </div>
                     {paid ?
-                        <div className="flex m-4 justify-center">
-                            <Link to='/account/pesanan' className="btn w-40 btn-primary btn-xs sm:btn-sm md:btn-md lg:btn-lg">Close</Link>
+                        <div className="flex justify-center m-4">
+                            <Link to='/account/pesanan' className="w-40 btn btn-primary btn-xs sm:btn-sm md:btn-md lg:btn-lg">Close</Link>
                         </div>
                         :
-                        <div className="flex m-4 justify-between">
-                            <Link to='/account/pesanan' className="btn w-40 btn-primary btn-xs sm:btn-sm md:btn-md lg:btn-lg">Close</Link>
-                            <button onClick={handlePaid} className="btn w-40 btn-primary btn-xs sm:btn-sm md:btn-md lg:btn-lg">Paid</button>
+                        <div className="flex justify-between m-4">
+                            <Link to='/account/pesanan' className="w-40 btn btn-primary btn-xs sm:btn-sm md:btn-md lg:btn-lg">Close</Link>
+                            <button onClick={handlePaid} className="w-40 btn btn-primary btn-xs sm:btn-sm md:btn-md lg:btn-lg">Paid</button>
                         </div>
                     }
                 </div>

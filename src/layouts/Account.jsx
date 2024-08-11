@@ -31,9 +31,9 @@ export default function Dashboard() {
     return (
         <>
             {open && <Logout handleClick={handleClick} />}
-            <div className="navbar  navbar-center bg-base-100 w-full">
+            <div className="w-full navbar navbar-center bg-base-100">
                 <div className="flex-1">
-                    <a className="btn btn-ghost text-xl">Exa Store</a>
+                    <a className="text-xl btn btn-ghost">Exa Store</a>
                 </div>
                 <div>
                     <label className="md:hidden swap swap-rotate">
@@ -42,7 +42,7 @@ export default function Dashboard() {
 
                         {/* hamburger icon */}
                         <svg
-                            className="swap-off fill-current"
+                            className="fill-current swap-off"
                             xmlns="http://www.w3.org/2000/svg"
                             width="32"
                             height="32"
@@ -52,7 +52,7 @@ export default function Dashboard() {
 
                         {/* close icon */}
                         <svg
-                            className="swap-on fill-current"
+                            className="fill-current swap-on"
                             xmlns="http://www.w3.org/2000/svg"
                             width="32"
                             height="32"
@@ -72,7 +72,7 @@ export default function Dashboard() {
                             <div className="indicator">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
-                                    className="h-5 w-5"
+                                    className="w-5 h-5"
                                     fill="none"
                                     viewBox="0 0 24 24"
                                     stroke="currentColor">
@@ -128,36 +128,36 @@ export default function Dashboard() {
                     </div>
                 </div>
             </div>
-            <div className="container bg-base-300 p-2 mx-auto">
-                <h1 className="bg-base-200 p-4">Account</h1>
+            <div className="container p-2 mx-auto bg-base-300">
+                <h1 className="p-4 bg-base-200">Account</h1>
                 <div className="flex py-4">
                     <div className="flex flex-col">
                         <NavLink to='/account/profile' className=
-                            {({ isActive }) => isActive ? "p-3 btn-xs sm:btn-sm md:btn-md lg:btn-lg btn btn-active justify-start w-full"
+                            {({ isActive }) => isActive ? "p-2 btn-xs sm:btn-sm md:btn-md lg:btn-lg btn btn-active justify-start w-full"
                                 :
-                                "p-3 btn-xs sm:btn-sm md:btn-md lg:btn-lg btn justify-start w-full"}
+                                "p-2 btn-xs sm:btn-sm md:btn-md lg:btn-lg btn justify-start w-full"}
                         >Profile</NavLink>
                         <NavLink to='/account/pesanan' className=
-                            {({ isActive }) => isActive ? "p-3 btn-xs sm:btn-sm md:btn-md lg:btn-lg btn btn-active justify-start w-full"
+                            {({ isActive }) => isActive ? "p-2 btn-xs sm:btn-sm md:btn-md lg:btn-lg btn btn-active justify-start w-full"
                                 :
-                                "p-3 btn-xs sm:btn-sm md:btn-md lg:btn-lg btn justify-start w-full"}
+                                "p-2 btn-xs sm:btn-sm md:btn-md lg:btn-lg btn justify-start w-full"}
                         >Pesanan</NavLink>
                         <NavLink to='/account/alamat' className=
-                            {({ isActive }) => isActive ? "p-3 btn-xs sm:btn-sm md:btn-md lg:btn-lg btn btn-active justify-start w-full"
+                            {({ isActive }) => isActive ? "p-2 btn-xs sm:btn-sm md:btn-md lg:btn-lg btn btn-active justify-start w-full"
                                 :
-                                "p-3 btn-xs sm:btn-sm md:btn-md lg:btn-lg btn justify-start w-full"}
+                                "p-2 btn-xs sm:btn-sm md:btn-md lg:btn-lg btn justify-start w-full"}
                         >Alamat</NavLink>
                         {role === 'admin' &&
                             <NavLink to='/dashboard/products' className=
-                                {({ isActive }) => isActive ? "p-3 text-xs btn-xs sm:btn-sm md:btn-md lg:btn-lg btn btn-active justify-start w-full"
+                                {({ isActive }) => isActive ? "p-2 text-xs btn-xs sm:btn-sm md:btn-md lg:btn-lg btn btn-active justify-start w-full"
                                     :
-                                    "p-3 text-xs btn-xs sm:btn-sm md:btn-md lg:btn-lg btn justify-start w-full"}
+                                    "p-2 text-xs btn-xs sm:btn-sm md:btn-md lg:btn-lg btn justify-start w-full"}
                             >Go to dashboard</NavLink>
                         }
-                        <button onClick={() => setOpen(true)} className="p-3 btn-xs sm:btn-sm md:btn-md lg:btn-lg btn justify-start w-full"
+                        <button onClick={() => setOpen(true)} className="justify-start w-full p-2 btn-xs sm:btn-sm md:btn-md lg:btn-lg btn"
                         >Logout</button>
                     </div>
-                    <div className="w-full bg-base-300 container px-10">
+                    <div className="container w-full px-3 bg-base-300">
                         <Outlet />
                     </div>
                 </div>

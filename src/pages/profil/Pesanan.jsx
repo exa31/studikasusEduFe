@@ -2,7 +2,9 @@ import { useLoaderData } from "react-router-dom"
 import ListOrder from "../../components/ListOrder"
 
 export default function Pesanan() {
+
     const data = useLoaderData()
+
     return (
         <>
             {data.length === 0 ?

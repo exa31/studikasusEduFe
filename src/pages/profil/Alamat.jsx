@@ -5,7 +5,6 @@ import { useState } from "react";
 export default function Alamat() {
 
     const data = useLoaderData();
-    console.log(data);
 
     const [alamat, setAlamat] = useState(data);
 
@@ -17,10 +16,11 @@ export default function Alamat() {
             return setAlamat(newAlamat)
         })
     }
+    console.log(alamat)
 
     return (
         <>
-            {alamat.statusCode === 404 ?
+            {alamat.statusCode === 404 || alamat.length === 0 ?
                 <div className="text-center bg-base-200">
                     <div >
                         Maaf belum ada alamat yang dibuat
