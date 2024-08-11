@@ -10,6 +10,8 @@ export default function CreateAlamat() {
 
     const navigate = useNavigate();
 
+    const [submit, setSubmit] = useState(false);
+
     const [error, setError] = useState({
         name: false,
         detail: false
@@ -93,6 +95,7 @@ export default function CreateAlamat() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        setSubmit(true);
         const detail = e.target.detail.value;
         const name = e.target.name.value;
         const error = {
@@ -123,7 +126,7 @@ export default function CreateAlamat() {
     }
 
     return (
-        <div className="bg-base-200 p-3 rounded-xl">
+        <div className="p-3 bg-base-200 rounded-xl">
             <h1>Create Alamat</h1>
             <form className="card-body" onSubmit={handleSubmit}>
                 <div className="form-control">
@@ -139,10 +142,10 @@ export default function CreateAlamat() {
                 {id.kecamatan && <Select name="kelurahan" label="Kelurahan" handleName={handleName} handleSelect={handleSelect} options={data.kelurahan} />}
                 <TextArea label="Detail" name="detail" />
                 {error.detail && <p className="text-red-500">Detail is required</p>}
-                <div className="form-control flex-row gap-5 mt-6">
-                    <Link to='/account/alamat' className="btn w-20 btn-primary">Back</Link>
+                <div className="flex-row gap-5 mt-6 form-control">
+                    <Link to='/account/alamat' className="w-20 btn btn-primary">Back</Link>
                     {id.kelurahan &&
-                        <button type="submit" className="btn w-40 btn-primary">Save</button>
+                        <button disabled={submit} type="submit" className="w-40 btn btn-primary">Save</button>
                     }
                 </div>
             </form>
