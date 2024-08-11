@@ -143,7 +143,7 @@ export default function CreateAlamat() {
                 <TextArea label="Detail" name="detail" />
                 {error.detail && <p className="text-red-500">Detail is required</p>}
                 <div className="flex-row gap-5 mt-6 form-control">
-                    <Link to='/account/alamat' className="w-20 btn btn-primary">Back</Link>
+                    <Link to='/account/alamat' disabled={submit} className="w-20 btn btn-primary">Back</Link>
                     {id.kelurahan &&
                         <button disabled={submit} type="submit" className="w-40 btn btn-primary">Save</button>
                     }
