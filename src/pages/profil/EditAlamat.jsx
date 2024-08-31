@@ -105,10 +105,10 @@ export default function EditAlamat() {
             )
         });
     }
-    console.log(defaultData.detail);
+
     return (
-        <div className="bg-base-200 p-3 rounded-xl">
-            <h1 className="text-3xl font-bold pb-2">Edit Alamat</h1>
+        <div className="p-3 bg-base-200 rounded-xl">
+            <h1 className="pb-2 text-3xl font-bold">Edit Alamat</h1>
             <h4>Alamat Sebelumnya</h4>
             <p>{`${defaultData.provinsi}, ${defaultData.kabupaten}, ${defaultData.kecamatan}, ${defaultData.kelurahan}, ${defaultData.detail}`}</p>
             <form className="card-body" onSubmit={handleSubmit}>
@@ -124,9 +124,9 @@ export default function EditAlamat() {
                 {id.kabupaten && <Select name="kecamatan" label="Kecamatan" handleName={handleName} handleSelect={handleSelect} options={data.kecamatan} />}
                 {id.kecamatan && <Select name="kelurahan" label="Kelurahan" handleName={handleName} handleSelect={handleSelect} options={data.kelurahan} />}
                 <TextArea name="detail" label="Detail" value={defaultData.detail} handleName={handleName} />
-                <div className="form-control flex-row gap-5 mt-6">
-                    <Link to='/account/alamat' className="btn w-20 btn-primary">Back</Link>
-                    <button type="submit" className="btn w-40 btn-primary">Save</button>
+                <div className="flex-row gap-5 mt-6 form-control">
+                    <Link to='/account/alamat' className="w-20 btn btn-primary">Back</Link>
+                    <button type="submit" className="w-40 btn btn-primary">Save</button>
                 </div>
             </form>
         </div>

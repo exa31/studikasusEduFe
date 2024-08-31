@@ -113,6 +113,7 @@ export default function CreateAlamat() {
 
         if (error.name || error.detail) {
             setError(error);
+            setSubmit(false);
             return;
         } else {
             createDeliveryAddress({ ...names, name: name, detail: detail }).then((data) => {
